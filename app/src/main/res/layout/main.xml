@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/hello"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome"
+        android:textSize="30sp"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/loadbtn"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="@string/load"
+        android:id="@+id/loadbtn"
+        android:layout_alignParentEnd="true"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/users_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_below="@id/hello"
+        android:layout_marginTop="13dp"
+        android:background="@color/colorPrimary"
+        android:layout_centerVertical="true">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+</RelativeLayout>
