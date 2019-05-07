@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="320sp"
+        android:layout_height="match_parent"
+        android:id="@+id/usercard"
+        android:layout_margin="25sp"
+        app:cardCornerRadius="8sp"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="4sp"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.github.abdularis.civ.CircleImageView
+                android:id="@+id/icon_img"
+                android:layout_margin="12sp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:strokeColor="@color/red2"
+                app:strokeWidth="1sp"
+                android:layout_centerHorizontal="true"/>
+
+            <TextView
+                android:id="@+id/mname"
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:layout_below="@id/icon_img"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:textColor="@color/red"
+                android:layout_margin="5sp"
+                android:layout_marginStart="10sp"
+                android:padding="5sp"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/memail"
+                android:layout_below="@id/mname"
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:textColor="@color/red2"
+                android:layout_margin="5sp"
+                android:layout_marginStart="10sp"
+                android:padding="5sp"
+                android:gravity="center"/>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

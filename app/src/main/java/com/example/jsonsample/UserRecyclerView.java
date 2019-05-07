@@ -20,19 +20,15 @@ import java.util.List;
 
 public class UserRecyclerView extends RecyclerView.Adapter <UserRecyclerView.ViewHolder>{
 
-    private List<String> users;
-    private List<String> emails;
-    private List<String> images;
+    private List<User> userList;
     Context context;
     private LayoutInflater mInflater;
 
     //Create Constructor and pass data to it
 
-    UserRecyclerView(Context context, List<String> data, List<String> mails, List<String> pics){
-        this.users = data;
-        this.emails = mails;
+    UserRecyclerView(Context context, List<User> userList){
         this.context=context;
-        this.images = pics;
+        this.userList = userList;
         this.mInflater = LayoutInflater.from(context);
     }
 
@@ -79,16 +75,23 @@ public class UserRecyclerView extends RecyclerView.Adapter <UserRecyclerView.Vie
     //Bind one data item in the array list to an item in the row
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String user = users.get(position);
-        String email = emails.get(position);
-        Picasso.with(context).load("http://192.168.43.220/JSONSam/Images/"+images.get(position)).into(holder.img);
+        User u = userList.get(position);
+        String user = u.getName();
+        String email = u.getEmail();
+        Picasso.with(context).load("http://192.168.43.220/JSONSam/Images/"+u.getPhoto()).into(holder.img);
         holder.myNameView.setText(user);
         holder.mMail.setText(email);
+
     }
 
     @Override
     public int getItemCount() {
-        return users.size();
+        try {
+            return userList.size();
+        }
+        catch (NullPointerException e){
+            e.printStackTrace();
+        }
+        return 0;
     }
-
 }
