@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">JSONSample</string>
-    <string name="welcome">Users:</string>
-    <string name="load">Load Data</string>
+    <string name="welcome">Applicants</string>
+    <string name="load">Load</string>
 </resources>
