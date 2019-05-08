@@ -19,30 +19,30 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class UsersVM extends ViewModel {
-    private ArrayList<User> users;
+public class OthersVM extends ViewModel {
+    private ArrayList<Other> others;
 
-    public ArrayList<User> getUser(){
-        if (users == null){
-            users = new ArrayList();
+    public ArrayList<Other> getOther(){
+        if (others == null){
+            others = new ArrayList();
             new GetUsers().execute();
-            Log.i("Main", "Running");
+            Log.i("Main", "Running2");
         }
-        return users;
+        return others;
     }
 
     private class GetUsers extends AsyncTask<Void, Void, String> {
 
         protected void onPreExecute(){
             super.onPreExecute();
-            Log.i("Main", "Baby");
+            Log.i("Main", "Boo");
         }
 
         @Override
         protected String doInBackground(Void... voids){
             HttpURLConnection connection = null;
             BufferedReader reader = null;
-            String jsonUrl = "http://192.168.43.220/JSONSam/Users/read.php";
+                String jsonUrl = "http://192.168.43.220/JSONSam/Others/read.php";
             try {
                 URL url = new URL(jsonUrl);
                 connection = (HttpURLConnection)url.openConnection();
@@ -88,14 +88,13 @@ public class UsersVM extends ViewModel {
         protected void onPostExecute(String result){
             try {
                 JSONObject obj = new JSONObject(result);
-                JSONArray ja = obj.getJSONArray("Users");
+                JSONArray ja = obj.getJSONArray("Others");
                 for (int i = 0; i<ja.length();i++){
-                    JSONObject userJsonObj = (JSONObject) ja.get(i);
-                    String name = userJsonObj.getString("Name");
-                    String email = userJsonObj.getString("Email");
-                    String image = userJsonObj.getString("Image");
-                    User newuser = new User(name,email,image);
-                    users.add(newuser);
+                    JSONObject otherJsonObj = (JSONObject) ja.get(i);
+                    String name = otherJsonObj.getString("Name");
+                    String gender = otherJsonObj.getString("Gender");
+                    Other newother = new Other(name,gender);
+                    others.add(newother);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
